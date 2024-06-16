@@ -25,6 +25,6 @@ type Query {
 }
 
 type Mutation {
-    followUser(followerId: ID!, followingId: ID!): FollowResponseDTO!
-    unfollowUser(followerId: ID!, followingId: ID!): FollowResponseDTO!
+    followUser(followingId: ID!): FollowResponseDTO!
+    unfollowUser(followingId: ID!): FollowResponseDTO!
 }
