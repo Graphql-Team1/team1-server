@@ -1,6 +1,6 @@
 ---
 name: Issue Template
-about: nonsoolmate Issue Template
+about: graphQL-team1 Issue Template
 title: "[FEAT]"
 labels: ''
 assignees: ''
