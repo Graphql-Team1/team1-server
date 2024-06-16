@@ -16,8 +16,8 @@ type Follow {
 
 type FollowResponseDTO{
     id: ID!
-    following: Int!
-    follower: Int!
+    followingCount: Int!
+    followerCount: Int!
 }
 
 type Query {
