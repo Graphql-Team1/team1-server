@@ -1,0 +1,30 @@
+# schema.graphqls
+type Member {
+    id: ID!
+    username: String!
+    profileImg: String!
+    follower: Int!
+    following: Int!
+    postCount: Int!
+}
+
+type Follow {
+    id: ID!
+    followerId: ID!
+    followingId: ID!
+}
+
+type FollowResponseDTO{
+    id: ID!
+    following: Int!
+    follower: Int!
+}
+
+type Query {
+    member(id: ID!): Member!
+}
+
+type Mutation {
+    followUser(followerId: ID!, followingId: ID!): FollowResponseDTO!
+    unfollowUser(followerId: ID!, followingId: ID!): FollowResponseDTO!
+}
