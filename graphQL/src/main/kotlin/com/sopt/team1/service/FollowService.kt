@@ -14,7 +14,7 @@ class FollowService(private val followRepository: FollowRepository, private val 
     fun follow(memberId: Long, targetId: Long): FollowResponseDTO {
         when {
             memberId == targetId -> throw IllegalArgumentException("You can't follow yourself")
-            followRepository.findByFollowerIdAndFollowingId(memberId, targetId) -> throw IllegalArgumentException("You already follow this member")
+            followRepository.existsByFollowerIdAndFollowingId(memberId, targetId) -> throw IllegalArgumentException("You already follow this member")
             else -> {
                 val follow = Follow(followerId = memberId, followingId = targetId)
                 followRepository.save(follow)
@@ -40,7 +40,7 @@ class FollowService(private val followRepository: FollowRepository, private val 
     fun unfollow(memberId: Long, targetId: Long): FollowResponseDTO{
         when{
             memberId == targetId -> throw IllegalArgumentException("You can't unfollow yourself")
-            !followRepository.findByFollowerIdAndFollowingId(memberId, targetId) -> throw IllegalArgumentException("You don't follow this member")
+            !followRepository.existsByFollowerIdAndFollowingId(memberId, targetId) -> throw IllegalArgumentException("You don't follow this member")
             else -> {
                 followRepository.deleteByFollowerIdAndFollowingId(memberId, targetId)
 
