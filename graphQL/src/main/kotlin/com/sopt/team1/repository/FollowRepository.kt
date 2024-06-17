@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface FollowRepository : JpaRepository<Follow, Long>{
     fun deleteByFollowerIdAndFollowingId(followerId: Long, followingId: Long)
+    fun findByFollowerIdAndFollowingId(followerId: Long, followingId: Long): Boolean
 }
