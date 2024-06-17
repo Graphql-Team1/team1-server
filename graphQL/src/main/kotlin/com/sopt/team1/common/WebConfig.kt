@@ -9,8 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 @Configuration
 class WebConfig : WebMvcConfigurer {
 
-    @Value("\${allowed.allowed-origins}")
-    lateinit var allowedOrigins: String
+    @Value("\${cors.allowed-origins}")
+    private lateinit var allowedOrigins: String
 
     @Bean
     fun corsConfigurer(): WebMvcConfigurer {
