@@ -13,6 +13,9 @@ class CustomExceptionResolver : DataFetcherExceptionResolverAdapter() {
         if(ex is EntityNotFoundException){
             return GraphQLError.newError().errorType(ErrorType.NOT_FOUND).message(ex.message).build()
         }
+        if(ex is IllegalArgumentException){
+            return GraphQLError.newError().errorType(ErrorType.BAD_REQUEST).message(ex.message).build()
+        }
         return super.resolveToSingleError(ex, env)
     }
 }
