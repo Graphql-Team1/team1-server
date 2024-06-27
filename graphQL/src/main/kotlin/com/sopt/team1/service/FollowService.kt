@@ -28,9 +28,9 @@ class FollowService(private val followRepository: FollowRepository, private val 
                 target.follower += 1
 
                 return FollowResponseDTO(
-                    id = follower.id ?: error("Follower id should not be null"),
-                    followerCount = follower.follower,
-                    followingCount = follower.following
+                    id = target.id ?: error("Target id should not be null"),
+                    followerCount = target.follower,
+                    followingCount = target.following
                 )
             }
         }
@@ -53,9 +53,9 @@ class FollowService(private val followRepository: FollowRepository, private val 
                 target.follower -= 1
 
                 return FollowResponseDTO(
-                    id = follower.id ?: error("Follower id should not be null"),
-                    followerCount = follower.follower,
-                    followingCount = follower.following
+                    id = target.id ?: error("Target id should not be null"),
+                    followerCount = target.follower,
+                    followingCount = target.following
                 )
             }
         }
